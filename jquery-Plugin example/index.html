@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+
+	<h2 id='text'>The test of jQuery</h2>
+	<ul>
+		<li>
+			<a href="https://www.baidu.com">Baidu</a>
+		</li>
+		<li>
+			<a href="https://www.sina.com">Sina</a>
+		</li>
+		<li>
+			<a href="https://www.taobao.com">taobao</a>
+		</li>
+	<script type="text/javascript" src="./src/jquery-3.1.1.js"></script>
+	<script>
+	//method 1
+/*		$.extend({
+			sayHello: function(name){
+				console.log('Hello,'+(name ? name : 'Tony') + '!');
+			}
+
+		})
+		$.sayHello();
+		$.sayHello('cake');*/
+
+	//method 2
+/*		$.fn.changeColor = function(){
+			this.css({'color':'red',"text-decoration":"none"});
+			return this.each(function(){
+				$(this).append(' ' + $(this).attr('href'));
+			})
+		}
+		$('a').changeColor();*/
+		;(function($, window, document,undefined) {
+			var Beautifier = function(ele, opt) {
+		    this.$element = ele,
+		    this.defaults = {
+		        'color': 'red',
+		        'fontSize': '12px',
+		        'textDecoration':'none'
+		    },
+		    this.options = $.extend({}, this.defaults, opt)
+		}
+			Beautifier.prototype = {
+			    beautify: function() {
+			        return this.$element.css({
+			            'color': this.options.color,
+			            'fontSize': this.options.fontSize,
+			            'textDecoration': this.options.textDecoration
+			        });
+			    }
+			}
+
+			$.fn.myPlugin = function(options){
+				var beautifier = new Beautifier(this, options);
+
+				return beautifier.beautify();
+			}
+
+			$('a').myPlugin({
+				'color':'#2c9929',
+				'fontSize':'20px'
+			});
+
+		})(jQuery, window, document);
+		
+	</script>
+</body>
+</html>

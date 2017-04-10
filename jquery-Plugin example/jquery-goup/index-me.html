@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery-goup</title>
+	<script src='js/jquery.min.js'></script>
+	<script type="text/javascript" src='js/jquery.goup.min.js'></script>
+
+
+<script type="text/javascript">
+        $(document).ready(function () {
+
+            $.goup({
+                trigger: 100,
+                bottomOffset: 50,
+                locationOffset: 20,
+                title: 'This is a Demo',
+                titleAsText: true
+            });
+
+        });
+    </script>
+
+    <style type="text/css">
+	body{
+		height: 2000px;
+		text-align: center;
+	}
+ 	div{
+	text-align: center;
+	margin: 50px 0;
+} 
+	</style>
+</head>
+
+<body>
+	<div>
+		<p>第一个jQuery插件应用，就是返回页面顶部，虽然很简单，但是有跨时代地意义！！</p>
+	</div>
+
+
+</body>
+</html>
